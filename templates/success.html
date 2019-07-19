@@ -1,0 +1,24 @@
+
+{% extends "master.html" %}
+
+{% block title %}Logged In{% endblock %}
+
+{% block content %}
+<div class="container">
+        {% with success = get_flashed_messages(category_filter=["registration","login"]) %}
+            {% for message in success %}
+                <div class="alert alert-success" role="alert">
+                    <h6>{{message }}</h6>
+                </div>
+            {%endfor%}
+        {%endwith%}
+</div>
+<h3 class="row justify-content-center">
+    Welcome {{session['firstname']}}! 
+</h3>
+
+
+<a href="/clear" class="btn btn-primary">Logout</a>
+
+    
+{%endblock%}
